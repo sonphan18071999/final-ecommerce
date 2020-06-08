@@ -1,0 +1,7 @@
+id
+userName:string
+password:string
+token: string
+twoFactor:number
+timeOut :number
+userId: string
