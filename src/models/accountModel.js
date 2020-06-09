@@ -11,5 +11,6 @@ let AccountSchema=new Schema({
     isAdmin:{type:String}
 })
 
+
 module.exports=mongoose.model('Account',AccountSchema);
 
