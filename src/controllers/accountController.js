@@ -1,12 +1,11 @@
-const Account=require('../models/accountModel');
+const db=require('../models/mainModel');
 const mongoose=require('mongoose');
-const bcrypt = require('bcrypt');
 
 
 exports.Account_create=function(req,res,next){
     //post-- http://localhost:3000/account/create
     //Kiểm tra tài khoản trùng, nếu không trùng thì tạo.
-    Account.findOne({userName:req.body.userName}, function(err, example)
+    db.Account.findOne({userName:req.body.userName}, function(err, example)
     {
         if(err) console.log(err);
   
@@ -18,7 +17,7 @@ exports.Account_create=function(req,res,next){
             {
                 
 
-                const account=new Account(
+                const account=new db.Account(
                 {
                     _id: mongoose.Types.ObjectId(),
                     userName: req.body.userName,
@@ -40,7 +39,7 @@ exports.Account_create=function(req,res,next){
 };
 
 exports.Account_get=function(req, res) {
-    Account.findOne({ userName: req.body.userName, password:req.body.password })
+    db.Account.findOne({ userName: req.body.userName, password:req.body.password })
 		.then(user => {
 			if (!user) {
                 //khong tim duoc user

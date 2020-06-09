@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 //account
-const account = require('./src/routes/accountRoute.js'); 
+const account = require('./src/routes/mainRoute.js'); 
 app.use('/account',account);
 
 
